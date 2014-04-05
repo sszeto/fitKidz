@@ -19,6 +19,32 @@ namespace FitKidz
         public MainPage()
         {
             InitializeComponent();
+
+            
+
+
+            childProgressBar1.Minimum = 0;
+            childProgressBar1.MaxHeight = 100;
+            childProgressBar1.Value = 40;
+
+            childProgressBar2.Minimum = 0;
+            childProgressBar2.MaxHeight = 100;
+            childProgressBar2.Value = 100;
+
+            childProgressBar3.Minimum = 0;
+            childProgressBar3.MaxHeight = 100;
+            childProgressBar3.Value = 50;
+
+            childProgressBar4.Minimum = 0;
+            childProgressBar4.MaxHeight = 100;
+            childProgressBar4.Value = 70;
+
+           
+        }
+
+        private void addChildButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
