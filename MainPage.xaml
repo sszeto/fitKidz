@@ -11,7 +11,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
@@ -34,44 +34,50 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <!--ContentPanel - place additional content here-->
-        
+
+        <Border Background="#f5908e" BorderBrush="Black" Grid.Row="0" Height="80" HorizontalAlignment="Stretch" Name="topBackground" />
+
+
         <!--Main title for first page -->
-        <TextBlock Height="80" HorizontalAlignment="Center" Name="mainTitle" Text="Children" VerticalAlignment="Center" Width="208" Foreground="#FFFF7272" FontSize="50" FontWeight="Bold" FontStretch="Expanded" DataContext="{Binding}" FontStyle="Normal" Margin="0,0,0,0"></TextBlock>
+        <TextBlock  HorizontalAlignment="Stretch" TextAlignment="Center" Name="mainTitle" Text="Children" VerticalAlignment="Center"  Foreground="White" FontSize="45" FontWeight="Bold" FontStretch="Expanded" DataContext="{Binding}" FontStyle="Normal" Margin="0,0,0,0"></TextBlock>
         
         
         <!--Button for adding children-->
-        <Button  HorizontalAlignment="Right" Name="addChildButton" Click="addChildButton_Click" Width="98" Margin="0,0,1,0">
+        <Button BorderThickness="0" HorizontalAlignment="Right" Name="addChildButton" Click="addChildButton_Click" Width="98" Margin="0,0,1,0">
             <Image Source="/FitKidz;component/Resources/add_plus.png" Height="40" Width="50" Margin="0,0"  > </Image>
         </Button>
 
 
         <!-- Hardcoded children name-->
-        <TextBlock Grid.Row="2" Height="70" HorizontalAlignment="Left" Name="child1" Text="Martin" VerticalAlignment="Center" Width="278" Foreground="Red" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
-        <TextBlock Grid.Row="4" Height="70" HorizontalAlignment="Left" Name="child2" Text="Rajib" VerticalAlignment="Center" Width="278" Foreground="Red" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
-        <TextBlock Grid.Row="6" Height="70" HorizontalAlignment="Left" Name="child3" Text="Lisa" VerticalAlignment="Center" Width="278" Foreground="Red" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
-        <TextBlock Grid.Row="8" Height="70" HorizontalAlignment="Left" Name="child4" Text="Sherman" VerticalAlignment="Center" Width="278" Foreground="Red" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
+        <TextBlock Grid.Row="2" Height="70" HorizontalAlignment="Left" Name="child1" Text="Martin" VerticalAlignment="Center" Width="278" Foreground="#7a7a7a" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
+        <TextBlock Grid.Row="4" Height="70" HorizontalAlignment="Left" Name="child2" Text="Rajib" VerticalAlignment="Center" Width="278" Foreground="#7a7a7a" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
+        <TextBlock Grid.Row="6" Height="70" HorizontalAlignment="Left" Name="child3" Text="Lisa" VerticalAlignment="Center" Width="278" Foreground="#7a7a7a" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
+        <TextBlock Grid.Row="8" Height="70" HorizontalAlignment="Left" Name="child4" Text="Sherman" VerticalAlignment="Center" Width="278" Foreground="#7a7a7a" FontSize="50" FontWeight="Normal" FontStretch="Normal" DataContext="{Binding}" FontStyle="Normal" Margin="30,0,0,0"></TextBlock>
 
 
-        <!-- Children's Progress Bar --> 
-        <ProgressBar Grid.Row="2" HorizontalAlignment="Right" Height="60" Name="childProgressBar1" Width="150" Margin="75,0" />
-        <ProgressBar Grid.Row="4" HorizontalAlignment="Right" Height="60" Name="childProgressBar2" Width="150" Margin="75,0" />
-        <ProgressBar Grid.Row="6" HorizontalAlignment="Right" Height="60" Name="childProgressBar3" Width="150" Margin="75,0" />
-        <ProgressBar Grid.Row="8" HorizontalAlignment="Right" Height="60" Name="childProgressBar4" Width="150" Margin="75,0" />
+        <!-- Children's Progress Bar -->
+        <ProgressBar Grid.Row="2" Foreground="#f16664" Background="#c2c2c2" HorizontalAlignment="Right" Height="60" Name="childProgressBar1" Width="150" Margin="75,0" Value="40" />
+        <ProgressBar Grid.Row="4" Foreground="#84ccff" Background="#c2c2c2" HorizontalAlignment="Right" Height="60" Name="childProgressBar2" Width="150" Margin="75,0" Value="100" />
+        <ProgressBar Grid.Row="6" Foreground="#f16664"  Background="#c2c2c2" HorizontalAlignment="Right" Height="60" Name="childProgressBar3" Width="150" Margin="75,0" Value="50" />
+        <ProgressBar Grid.Row="8" Foreground="#f16664" Background="#c2c2c2" HorizontalAlignment="Right" Height="60" Name="childProgressBar4" Width="150" Margin="75,0" Value="70" />
        
         
         <!--icons-->
-        <Image Source="/FitKidz;component/Resources/running.png" Grid.Row="2" Height="70" HorizontalAlignment="Right" Margin="0,0,0,0" Name="childIcon1" Stretch="Fill" VerticalAlignment="Top" Width="70" />
-        <Image Source="/FitKidz;component/Resources/piggy.png" Grid.Row="4" Height="70" HorizontalAlignment="Right" Margin="0,0,0,0" Name="childIcon2" Stretch="Fill" VerticalAlignment="Top" Width="70" />
-        <Image Source="/FitKidz;component/Resources/running.png" Grid.Row="6" Height="70" HorizontalAlignment="Right" Margin="0,0,0,0" Name="childIcon3" Stretch="Fill" VerticalAlignment="Top" Width="70" />
-        <Image Source="/FitKidz;component/Resources/running.png" Grid.Row="8" Height="70" HorizontalAlignment="Right" Margin="0,0,0,0" Name="childIcon4" Stretch="Fill" VerticalAlignment="Top" Width="70" />
-        
-        
-        
-        <Border Background="Black" BorderBrush="Black" Grid.Row="1" Height="5" HorizontalAlignment="Stretch" Name="border1" />
-        <Border Background="Black" BorderBrush="Black" Grid.Row="3" Height="5" HorizontalAlignment="Stretch" Name="border2" />
-        <Border Background="Black" BorderBrush="Black" Grid.Row="5" Height="5" HorizontalAlignment="Stretch" Name="border3" />
-        <Border Background="Black" BorderBrush="Black" Grid.Row="7" Height="5" HorizontalAlignment="Stretch" Name="border4" />
-        <Border Background="Black" BorderBrush="Black" Grid.Row="9" Height="5" HorizontalAlignment="Stretch" Name="border5" />
+        <Image Source="/FitKidz;component/Resources/running.png" Grid.Row="2" Height="50" HorizontalAlignment="Right" Margin="0,0,10,0" Name="childIcon1" Stretch="Fill" VerticalAlignment="Center" Width="50" />
+        <Image Source="/FitKidz;component/Resources/piggy.png" Grid.Row="4" Height="50" HorizontalAlignment="Right" Margin="0,0,10,0" Name="childIcon2" Stretch="Fill" VerticalAlignment="Center" Width="50" />
+        <Image Source="/FitKidz;component/Resources/running.png" Grid.Row="6" Height="50" HorizontalAlignment="Right" Margin="0,0,10,0" Name="childIcon3" Stretch="Fill" VerticalAlignment="Center" Width="50" />
+        <Image Source="/FitKidz;component/Resources/running.png" Grid.Row="8" Height="50" HorizontalAlignment="Right" Margin="0,0,10,0" Name="childIcon4" Stretch="Fill" VerticalAlignment="Center" Width="50" />
+
+
+
+        <Border Background="#dfdfdf" BorderBrush="#dfdfdf" Grid.Row="1" Height="5" HorizontalAlignment="Stretch" Name="border1" />
+        <Border Background="#dfdfdf" BorderBrush="#dfdfdf" Grid.Row="3" Height="5" HorizontalAlignment="Stretch" Name="border2" />
+        <Border Background="#dfdfdf" BorderBrush="#dfdfdf" Grid.Row="5" Height="5" HorizontalAlignment="Stretch" Name="border3" />
+        <Border Background="#dfdfdf" BorderBrush="#dfdfdf" Grid.Row="7" Height="5" HorizontalAlignment="Stretch" Name="border4" />
+        <Border Background="#dfdfdf" BorderBrush="#dfdfdf" Grid.Row="9" Height="5" HorizontalAlignment="Stretch" Name="border5" />
+
+
+        <Border Background="#ebebeb" BorderBrush="Black" Grid.Row="10" Height="1000" HorizontalAlignment="Stretch" Name="backgroundBottom" />
 
 
     </Grid>
